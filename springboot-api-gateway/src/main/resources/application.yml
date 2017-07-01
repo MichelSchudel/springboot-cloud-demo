@@ -1,0 +1,12 @@
+security:
+
+zuul:
+  routes:
+    time-service:
+      path: /time/**
+
+spring:
+  application:
+    name: api-gateway
+server:
+  port: 9000

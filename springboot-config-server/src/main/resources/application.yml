@@ -1,0 +1,12 @@
+server:
+  port: ${PORT:8888}
+
+spring:
+    profiles:
+         active: native
+    application:
+      name: config-server
+
+#because active profile is 'native', the repository isn't a git repo but SpringBoot
+#will lookup configs on the classpath.
+
