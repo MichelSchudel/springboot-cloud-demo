@@ -1,0 +1,39 @@
+Greeting service uitbreiden naar config server
+----------------------------------------------
+Greeting service tonen, gewone werking
+Config server tonen en starten
+In greeting service mvn config server aanzetten, application.properties verwijderen en vervangen door bootstrap.properties, service herstarten
+laten zien dat de greeting nu anders is
+
+Greeting service aanmelden bij Eureka service
+---------------------------------------------
+@EnabledDiscoveryClient aanzetten
+bootstrap.properties uitbreiden:
+  spring.application.name=greeting-service
+  eureka.client.healthcheck.enabled=true
+service hertstarten en laten zien op localhost:6781 dat de greeting service is geregistreerd
+
+Time service gebruik laten maken van server side discovery
+----------------------------------------------------------
+Time service introduceren
+RestTemplate bean maken op de configuratie van de time service
+RestTemplate injecteren op de controller
+Greeting ophalen middels String greeting = restTemplate.getForObject("http://greeting-service/greeting", String.class);
+Service starten en resultaat tonen
+
+Circuit breaker tonen
+---------------------
+Weather service tonen en starten
+WeatherServiceClient tonen in time service
+@EnableCircuitBreaker en @EnableHystrixDashboard toevoegen aan TimeApplication
+WeatherServiceClient injectoren in TimeRestController en resultaat gebruiken
+op timeservice:xxxx/histrix tonen dat de crcuit breaker openklapt
+
+
+API Gateway
+-----------
+API Gateway structuur tonen met name @EnableZuulProxy
+time-service en routing toevoegen
+API Gateway starten en laten zien dat je er ook van de api gateway bij kan
+
+        
