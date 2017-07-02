@@ -20,7 +20,7 @@
 		<module>springboot-eureka-server</module>
 		<module>springboot-greeting-service</module>
 		<module>springboot-time-service</module>
-		<module>springboot-trage-service</module>
+		<module>springboot-weather-service</module>
 	</modules>
 	
 	    <dependencyManagement>
