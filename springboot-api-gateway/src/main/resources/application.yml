@@ -2,8 +2,8 @@ security:
 
 zuul:
   routes:
-    time-service:
-      path: /time/**
+    #time-service:
+    #  path: /time/**
 
 spring:
   application:

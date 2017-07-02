@@ -11,9 +11,9 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableCircuitBreaker
-@EnableHystrixDashboard
-public class TimeService {
+//@EnableCircuitBreaker
+//@EnableHystrixDashboard
+public class TimeApplication {
 
     @Bean
     @LoadBalanced
@@ -22,7 +22,7 @@ public class TimeService {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(TimeService.class, args);
+        SpringApplication.run(TimeApplication.class, args);
     }
 
 }

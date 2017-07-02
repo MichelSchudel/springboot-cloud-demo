@@ -9,7 +9,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
 @Service
-public class TrageServiceClient {
+public class WeatherServiceClient {
 
     @Autowired
     @LoadBalanced
@@ -21,11 +21,11 @@ public class TrageServiceClient {
 
     })
     public String getTraag() {
-        String traag = restTemplate.getForObject("http://trage-service/traag", String.class);
+        String traag = restTemplate.getForObject("http://weather-service/weather", String.class);
         return traag;
     }
 
     public String fallback() {
-        return "service traag werkt niet!";
+        return "...don't know actually...";
     }
 }
