@@ -2,9 +2,10 @@ security:
 
 zuul:
   routes:
+     time-service:
+        path: /time/**
 
-   
-   spring:
+spring:
   application:
     name: api-gateway
 server:

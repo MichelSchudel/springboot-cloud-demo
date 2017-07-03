@@ -2,32 +2,35 @@ Greeting service uitbreiden naar config server
 ----------------------------------------------
 Greeting service tonen, gewone werking
 Config server tonen en starten
-In greeting service mvn config server aanzetten, application.properties verwijderen en vervangen door bootstrap.properties, service herstarten
-laten zien dat de greeting nu anders is
+In greeting service mvn config server pom depdency opnemen
+application.properties verwijderen en vervangen door bootstrap.properties met:
+server.port
+spring.application.name
+service herstarten, laten zien dat de greeting nu anders is
 
 Greeting service aanmelden bij Eureka service
 ---------------------------------------------
-@EnabledDiscoveryClient aanzetten
+spring cloud starter eureka als dependency toevoegen in de pom
+@EnableDiscoveryClient aanzetten op de application
 bootstrap.properties uitbreiden:
-  spring.application.name=greeting-service
   eureka.client.healthcheck.enabled=true
-service hertstarten en laten zien op localhost:6781 dat de greeting service is geregistreerd
+service hertstarten en laten zien op localhost:6781 dat de greeting service is geregistreerd (middels localhost: 6781)
 
-Time service gebruik laten maken van server side discovery
+Time service gebruik laten maken van greeting service middels server side discovery
 ----------------------------------------------------------
 Time service introduceren
 Laten zien dat er een resttemplate bean gemaakt is in de application class
-RestTemplate injecteren op de controller (livetemplate)
-Greeting ophalen middels String greeting = restTemplate.getForObject("http://greeting-service/greeting", String.class);
-Service starten en resultaat tonen
+RestTemplate injecteren op de controller (scresttemplate)
+Greeting ophalen middels String greeting = restTemplate.getForObject("http://greeting-service/greeting", String.class); (scdisc)
+Service starten en resultaat tonen middels localhost:8080/time
 
 Circuit breaker tonen
 ---------------------
 Weather service tonen en starten
 WeatherServiceClient tonen in time service
 @EnableCircuitBreaker en @EnableHystrixDashboard toevoegen aan TimeApplication
-WeatherServiceClient injectoren in TimeRestController en resultaat gebruiken
-op timeservice:xxxx/histrix tonen dat de crcuit breaker openklapt
+WeatherServiceClient injecteren in TimeRestController en resultaat gebruiken
+op timeservice:8080/histrix tonen dat de crcuit breaker openklapt
 
 
 API Gateway

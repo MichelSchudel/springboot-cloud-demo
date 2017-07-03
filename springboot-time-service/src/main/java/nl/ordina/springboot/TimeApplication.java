@@ -11,8 +11,8 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-//@EnableCircuitBreaker
-//@EnableHystrixDashboard
+@EnableCircuitBreaker
+@EnableHystrixDashboard
 public class TimeApplication {
 
     @Bean

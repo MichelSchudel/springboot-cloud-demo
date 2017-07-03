@@ -6,7 +6,6 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
 @EnableZuulProxy
 public class ApiGateway {
 
