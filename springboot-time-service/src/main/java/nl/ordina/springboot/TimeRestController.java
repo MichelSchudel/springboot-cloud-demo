@@ -11,23 +11,17 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class TimeRestController {
 
-    @LoadBalanced
-    @Autowired
-    private RestTemplate restTemplate;
-
-    //@Autowired
-    //private WeatherServiceClient weatherServiceClient;
-
     @RequestMapping("/time")
     public String getTime() {
-        String greeting = restTemplate.getForObject("http://greeting-service/greeting", String.class);
+        String greeting = null;
         return greeting + "\n"  + " It is now: "  + new Date();
+
     }
 
-//    @RequestMapping("/timeandweather")
-//    public String getTimeAndWeather() {
-//        String trageGreeting = weatherServiceClient.getTraag();
-//        return getTime() + trageGreeting;
-//    }
+    @RequestMapping("/timeandweather")
+    public String getTimeAndWeather() {
+        String weather = null;
+        return getTime() + weather;
+    }
 
 }

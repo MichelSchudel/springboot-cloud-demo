@@ -16,8 +16,8 @@ service hertstarten en laten zien op localhost:6781 dat de greeting service is g
 Time service gebruik laten maken van server side discovery
 ----------------------------------------------------------
 Time service introduceren
-RestTemplate bean maken op de configuratie van de time service
-RestTemplate injecteren op de controller
+Laten zien dat er een resttemplate bean gemaakt is in de application class
+RestTemplate injecteren op de controller (livetemplate)
 Greeting ophalen middels String greeting = restTemplate.getForObject("http://greeting-service/greeting", String.class);
 Service starten en resultaat tonen
 

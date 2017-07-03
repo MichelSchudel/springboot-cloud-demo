@@ -20,9 +20,9 @@ public class WeatherServiceClient {
             ,@HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "5000")
 
     })
-    public String getTraag() {
-        String traag = restTemplate.getForObject("http://weather-service/weather", String.class);
-        return traag;
+    public String getWeather() {
+        String weather = restTemplate.getForObject("http://weather-service/weather", String.class);
+        return weather;
     }
 
     public String fallback() {
